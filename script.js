@@ -211,7 +211,7 @@ function getCityCoordinates() {
   let cityName = cityInput.value.trim();
   cityInput.value = "";
   if (!cityName) return;
-  const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`; // Geocoding API URL
+  const GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`; // Geocoding API URL
   fetch(GEOCODING_API_URL)
     .then((res) => {
       if (!res.ok) throw new Error("Geocoding data fetch failed"); // Handle errors

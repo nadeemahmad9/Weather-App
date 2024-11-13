@@ -113,12 +113,14 @@ hr {
         max-width: 200px;
         font-size: 16px;
         padding: 8px;
-        margin: 0 10px;
+        /* margin-left: 1px;
+        margin-right: 50px; */
         border-radius: 25px;
         box-sizing: border-box;
         background-color: #d3d3d3;
         color: #000000;
         border: none;
+        text-align: center;
 
         /* Remove the default outline when the input is focused */
         &:focus {
@@ -463,12 +465,13 @@ hr {
         margin-bottom: 10px;
     }
 
-    #searchBtn,
-    #locationBtn {
+    .header #searchBtn,
+    .header #locationBtn {
         /* width: 8%; */
         /* Make buttons take 45% of the screen width */
-        padding: 8px 16px;
+        padding: 12px;
         font-size: 14px;
+        width: 10%;
     }
 
     .temp-toggle {
@@ -498,15 +501,16 @@ hr {
         & #city_input {
             width: 90%;
             /* Make the input larger */
-            max-width: 100%;
+            /* max-width: 100%;
             padding: 15px;
-            font-size: 18px;
+            font-size: 18px; */
         }
 
         .header #searchBtn,
         .header #locationBtn {
             width: 10%;
             font-size: 14px;
+            padding: 12px;
 
         }
 
@@ -522,18 +526,20 @@ hr {
 @media (max-width:600px) {
     .header {
         flex-direction: column;
-        align-items: stretch;
     }
 
     #city_input {
-        width: 100%;
-        max-width: 100%;
-        margin: 5px 0;
+        width: 90%;
+        /* max-width: 100%; */
+        /* margin: 5px 0; */
     }
 
-    #searchBtn,
-    #locationBtn {
-        margin: 5px 0;
+    .header #searchBtn,
+    .header #locationBtn {
+        /* margin: 5px 0; */
+        width: 10%;
+        font-size: 14px;
+        padding: 12px;
 
     }
 }
@@ -553,6 +559,7 @@ hr {
     .header #locationBtn {
         width: 10%;
         font-size: 14px;
+        padding: 12px;
     }
 }
 
@@ -581,25 +588,30 @@ hr {
 
 @media(max-width: 480px) {
     .weather-data .weather-right .highlights .sunrise-sunset {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(1, 1fr);
     }
 
     #city_input {
-        width: 80%;
-        font-size: 12px;
+        font-size: 16px;
+        padding: 12px;
     }
 
     .header #searchBtn,
     .header #locationBtn {
         width: 10%;
         font-size: 14px;
-        /* padding: 6px 12px; */
+        padding: 12px;
+    }
+
+    .temp-toggle span {
+        font-size: 14px;
+        /* Adjust toggle font size for small screens */
     }
 }
 
 /* Layout for smaller mobile devices (max-width: 450px) */
 
-@media(max-width: 400px) {
+@media(max-width: 450px) {
     .weather-data .weather-right .hourly-forecast {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -639,13 +651,12 @@ hr {
 
     .header #searchBtn,
     .header #locationBtn {
-        /* Make buttons a bit wider */
-        width: 10%;
+        width: 40%;
         font-size: 14px;
 
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 350px) {
         .header h2 {
             font-size: 18px;
         }
@@ -667,7 +678,7 @@ hr {
 
         .header #searchBtn,
         .header #locationBtn {
-            width: 80%;
+            width: 40%;
             padding: 10px;
             font-size: 14px;
         }
@@ -686,7 +697,7 @@ hr {
 
     @media (min-width: 320px) {
         .header h2 {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         /* Make input box and buttons smaller and stack them if needed */
@@ -698,7 +709,7 @@ hr {
 
         .search-container #city_input {
             width: 100%;
-            padding: 10px;
+            padding: 10px 0;
             font-size: 14px;
             margin-left: 1px;
             border: none;
@@ -706,7 +717,7 @@ hr {
 
         .header #searchBtn,
         .header #locationBtn {
-            width: 80%;
+            width: 16%;
             padding: 10px;
             font-size: 14px;
         }

@@ -2,101 +2,65 @@
 <html lang="en">
 
 <head>
-    <!-- Meta tags for character encoding and viewport settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Link to external stylesheet (style.css) -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Link to Font Awesome for icons (used throughout the app) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <!-- Title of the page (appears in the browser tab) -->
     <title>LiveWeather</title>
     <link rel="icon" href="./assets/weather-app-logo.png" type="image/x-icon">
 </head>
 
 <body>
-    <!-- Main container for the entire weather app -->
     <div class="container">
-        <!-- Header section that contains the logo, temperature toggle, and city search -->
         <div class="header">
-            <!-- Title and Logo of the app -->
-            <h2>
-                <!-- Logo image of the weather app -->
-                <img style="width: 60px;" src="./assets/weather-app-logo.png" alt="">
-                LiveWeather
-            </h2>
-
-            <!-- Input area for weather search and temperature unit toggle -->
+            <h2><img style="width: 60px;" src="./assets/weather-app-logo.png" alt=""> LiveWeather</h2>
             <div class="weather_input">
                 <div class="convert">
-                    <!-- Temperature toggle between Celsius and Fahrenheit -->
                     <div id="tempToggle">
                         <span class="cDegree active">°C </span>
                         <span class="fDegree">°F </span>
                     </div>
                 </div>
-
-                <!-- Input field for entering a city name -->
-                <input type="search" name="city" id="city_input" placeholder="Enter City Name" />
-
-                <!-- Search button to trigger the search for weather data -->
-                <button class="button" id="searchBtn">
-                    <i class="fa fa-search"></i>
-                </button>
-
-                <!-- Button to get weather based on the user's current location -->
-                <button class="button" id="locationBtn">
-                    <i class="fa fa-location"></i>
-                </button>
+                <div class="search-container">
+                    <input type="text" id="city_input" placeholder="Enter city name" />
+                </div>
+                <button class="button" id="searchBtn"><i class="fa fa-search"></i></button>
+                <button class="button" id="locationBtn"><i class="fa fa-location"></i></button>
             </div>
         </div>
 
-        <!-- Weather data section showing current weather, forecast, and highlights -->
         <div class="weather-data">
             <div class="weather-left">
-                <!-- Card displaying current weather information -->
                 <div class="card">
                     <div class="current-weather">
                         <div class="details">
-                            <!-- Label for current weather (e.g., Now) -->
                             <p>Now</p>
-                            <!-- Temperature display (in Celsius initially) -->
                             <h2>&deg;C</h2>
                             <p></p>
                         </div>
                         <div class="weather-icon">
-                            <!-- Weather icon representing current weather condition -->
                             <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
                         </div>
                     </div>
-                    <!-- Horizontal rule separating current weather and footer -->
                     <hr>
-                    <!-- Footer section with date and location details -->
                     <div class="card-footer">
                         <p><i class="fa-solid fa-calendar"></i></p>
                         <p><i class="fa-solid fa-location-dot"></i></p>
                     </div>
                 </div>
 
-                <!-- Card displaying the 5-day weather forecast -->
                 <div class="card">
                     <h2>5 days Forecast</h2>
                     <div class="day-forecast">
-                        <!-- Repeatable forecast item displaying weather for each day -->
+                        <!-- Repeatable forecast items for each day -->
                         <div class="forecast-item">
                             <div class="icon-wrapper">
-                                <!-- Weather icon for the forecasted day -->
                                 <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
-                                <!-- Temperature in Celsius for the forecasted day -->
                                 <span>&deg;C</span>
                             </div>
                             <p></p>
                             <p></p>
                         </div>
-                        <!-- Additional forecast items (for other days) -->
                         <div class="forecast-item">
                             <div class="icon-wrapper">
                                 <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
@@ -133,22 +97,16 @@
                 </div>
             </div>
 
-            <!-- Weather highlights and hourly forecast section -->
             <div class="weather-right">
                 <h2>Today's Highlights</h2>
                 <div class="highlights">
-                    <!-- Card for displaying air quality index (AQI) -->
                     <div class="card">
                         <div class="card-head">
-                            <!-- Title for the AQI section -->
                             <p>Air Quality Index</p>
-                            <!-- Display AQI status (Good, Moderate, etc.) -->
                             <p class="air-index aqi-1">Good</p>
                         </div>
                         <div class="air-indices">
-                            <!-- Icon for wind speed -->
                             <i class="fa fa-wind fa-3x"></i>
-                            <!-- Air quality items for various pollutants -->
                             <div class="item">
                                 <p>PM2.5</p>
                                 <h2></h2>
@@ -184,29 +142,20 @@
                         </div>
                     </div>
 
-                    <!-- Card for displaying sunrise and sunset times -->
                     <div class="card">
                         <div class="card-head">
                             <p>Sunrise & Sunset</p>
                         </div>
                         <div class="sunrise-sunset">
-                            <!-- Sunrise time display -->
                             <div class="item">
-                                <div class="icon">
-                                    <!-- Sunrise icon -->
-                                    <img src="./assets/sunrise.png" alt="">
-                                </div>
+                                <div class="icon"><img src="./assets/sunrise.png" alt=""></div>
                                 <div>
                                     <p>Sunrise</p>
                                     <h2></h2>
                                 </div>
                             </div>
-                            <!-- Sunset time display -->
                             <div class="item">
-                                <div class="icon">
-                                    <!-- Sunset icon -->
-                                    <img src="./assets/sunset.png" alt="">
-                                </div>
+                                <div class="icon"><img src="./assets/sunset.png" alt=""></div>
                                 <div>
                                     <p>Sunset</p>
                                     <h2></h2>
@@ -215,82 +164,59 @@
                         </div>
                     </div>
 
-                    <!-- Card for displaying humidity information -->
                     <div class="card">
                         <div class="card-head">
                             <p>Humidity</p>
                         </div>
                         <div class="card-item">
-                            <!-- Icon for humidity -->
                             <i class="fa fa-droplet fa-2x"></i>
-                            <!-- Humidity value (e.g., 75%) -->
                             <h3 id="humidityVal">___%</h3>
                         </div>
                     </div>
 
-                    <!-- Card for displaying atmospheric pressure -->
                     <div class="card">
                         <div class="card-head">
                             <p>Pressure</p>
                         </div>
                         <div class="card-item">
-                            <!-- Icon for pressure -->
                             <i class="fa fa-compass fa-2x"></i>
-                            <!-- Pressure value (e.g., 1013 hPa) -->
                             <h3 id="pressureVal">___hPa</h3>
                         </div>
                     </div>
 
-                    <!-- Card for displaying visibility information -->
                     <div class="card">
                         <div class="card-head">
                             <p>Visibility</p>
                         </div>
                         <div class="card-item">
-                            <!-- Icon for visibility -->
                             <i class="fa fa-eye fa-2x"></i>
-                            <!-- Visibility value (e.g., 10 km) -->
                             <h3 id="visibilityVal">___km</h3>
                         </div>
                     </div>
 
-                    <!-- Card for displaying wind speed -->
                     <div class="card">
                         <div class="card-head">
                             <p>Wind Speed</p>
                         </div>
                         <div class="card-item">
-                            <!-- Icon for wind speed -->
                             <i class="fa fa-location-arrow fa-2x"></i>
-                            <!-- Wind speed value (e.g., 5 m/s) -->
                             <h3 id="windSpeedVal">___m/s</h3>
                         </div>
                     </div>
 
-                    <!-- Card for displaying "feels like" temperature -->
                     <div class="card">
                         <div class="card-head">
                             <p>Feels Like</p>
                         </div>
                         <div class="card-item">
-                            <!-- Icon for temperature -->
                             <i class="fa-solid fa-temperature-full fa-2x"></i>
-                            <!-- "Feels like" temperature value (e.g., 30°C) -->
                             <h3 id="feelsVal">___&deg;C</h3>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hourly forecast section showing temperature for each hour -->
                 <h2>Today at</h2>
                 <div class="hourly-forecast">
-                    <!-- Hourly forecast card for 10 AM -->
-                    <div class="card">
-                        <p>10 AM</p>
-                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
-                        <p>___&deg;C</p>
-                    </div>
-                    <!-- Additional hourly forecast cards for other times -->
                     <div class="card">
                         <p>10 AM</p>
                         <img src="https://openweathermap.org/img/wn/04d.png" alt="">
@@ -311,31 +237,12 @@
                         <img src="https://openweathermap.org/img/wn/04d.png" alt="">
                         <p>___&deg;C</p>
                     </div>
-                    <div class="card">
-                        <p>10 AM</p>
-                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
-                        <p>___&deg;C</p>
-                    </div>
-                    <div class="card">
-                        <p>10 AM</p>
-                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
-                        <p>___&deg;C</p>
-                    </div>
-                    <div class="card">
-                        <p>10 AM</p>
-                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
-                        <p>___&deg;C</p>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Moment.js library for date and time manipulation -->
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
-
-    <!-- Link to the external JavaScript file for app logic (script.js) -->
     <script src="script.js"></script>
 </body>
 

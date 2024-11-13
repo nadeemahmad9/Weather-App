@@ -1,5 +1,3 @@
-/* Define root variables for global styling such as background colors and AQI (Air Quality Index) colors */
-
 :root {
     --bg-color: #1c1d24;
     /* Background color for the page */
@@ -43,24 +41,23 @@ body {
     padding: 0 15px;
     /* Horizontal padding */
 
-
 }
 
 /* Styling for the input area (search box and temperature toggle) */
 .weather_input {
     display: flex;
     align-items: center;
+    gap: 10px;
+
 }
 
 /* Styling for temperature toggle in the conversion section */
 .convert #tempToggle {
     margin-right: 10px;
     font-size: 16px;
-
     display: flex;
     justify-content: space-between;
     gap: 0.2rem;
-
 
 }
 
@@ -78,6 +75,7 @@ body {
 #tempToggle span.active {
     background-color: #d3d3d3;
     color: #000000;
+    font-weight: bold;
 }
 
 /* Styling for horizontal rules */
@@ -99,26 +97,28 @@ hr {
     top: 0;
     left: 0;
     z-index: 99;
-    width: 100%;
+    /* width: 100%; */
     /* Ensure the header is above other elements */
     border-radius: 15px;
     background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 20px 150px;
+    /* margin-bottom: 10px; */
+    padding: 10px;
 
     /* Styling for the city input field */
     & #city_input {
-        flex: 1;
-        /* Allow input to take up remaining space */
-        border: none;
+        width: 100%;
+        max-width: 200px;
         font-size: 16px;
-        padding: 5px 10px;
+        padding: 8px;
+        margin: 0 10px;
         border-radius: 25px;
+        box-sizing: border-box;
         background-color: #d3d3d3;
         color: #000000;
+        border: none;
 
         /* Remove the default outline when the input is focused */
         &:focus {
@@ -127,12 +127,24 @@ hr {
 
     }
 
+    .search-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        /* Add some space between elements */
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
     /* Styling for the search button */
     & #searchBtn {
-        margin-left: 10px;
-        padding: 8px 12px;
+        /* margin-left: 10px; */
+        padding: 8px;
+        margin: 0 5px;
         border: none;
-        font-size: 16px;
+        /* font-size: 14px; */
         border-radius: 25px;
         background-color: #d3d3d3;
         color: #000000;
@@ -141,16 +153,18 @@ hr {
 
     /* Styling for the location button */
     & #locationBtn {
-        margin-left: 10px;
-        padding: 8px 12px;
+        /* margin-left: 10px; */
+        padding: 8px;
         border: none;
-        font-size: 16px;
+        margin: 0 5px;
+        /* font-size: 14px; */
         border-radius: 25px;
         background-color: #d3d3d3;
         color: #000000;
         cursor: pointer;
 
     }
+
 
     .current-weather .details .weather-icon {
         width: 5px;
@@ -183,7 +197,6 @@ hr {
     & h2 {
         font-size: 32px;
         font-weight: 500;
-
 
     }
 
@@ -223,7 +236,6 @@ hr {
             font-size: 14px;
             margin-bottom: 12px;
 
-
         }
 
         & .forecast-item {
@@ -232,12 +244,10 @@ hr {
             place-items: center;
             margin-bottom: 15px;
 
-
             & .icon-wrapper {
                 display: flex;
                 align-items: center;
             }
-
 
 
         }
@@ -304,7 +314,6 @@ hr {
                 grid-template-columns: repeat(4, 1fr);
                 place-items: center;
 
-
                 & p {
                     text-align: center;
                     color: var(--aqi-3);
@@ -313,7 +322,6 @@ hr {
                 & i {
                     margin-bottom: 14px;
                 }
-
 
             }
 
@@ -336,7 +344,6 @@ hr {
                 display: flex;
                 justify-content: space-between;
             }
-
 
         }
 
@@ -443,23 +450,91 @@ hr {
     }
 }
 
+/* Media query for medium screens (for tablet and below, including 650px width) */
+@media (max-width: 768px) {
+    .search-container {
+        justify-content: space-evenly;
+    }
+
+    #city_input {
+        width: 80%;
+        /* Ensure it takes up most of the available space */
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #searchBtn,
+    #locationBtn {
+        /* width: 8%; */
+        /* Make buttons take 45% of the screen width */
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .temp-toggle {
+        width: 100%;
+        /* Make the temperature toggle stretch across the screen */
+        justify-content: center;
+    }
+}
+
+
 /* Layout for very small screens (max-width: 660px) */
 
-@media(max-width: 660px) {
+@media(max-width: 650px) {
     .header {
         flex-direction: column;
+        align-items: center;
 
         & h2 {
             margin-bottom: 8px;
         }
 
-        & #city_input,
-        #searchBtn,
-        #locationBtn {
-            width: 100%;
-            margin-bottom: 10px;
+        .search-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        & #city_input {
+            width: 90%;
+            /* Make the input larger */
+            max-width: 100%;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        .header #searchBtn,
+        .header #locationBtn {
+            width: 10%;
+            font-size: 14px;
 
         }
+
+        .temp-toggle {
+            width: 90%;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+    }
+}
+
+@media (max-width:600px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #city_input {
+        width: 100%;
+        max-width: 100%;
+        margin: 5px 0;
+    }
+
+    #searchBtn,
+    #locationBtn {
+        margin: 5px 0;
+
     }
 }
 
@@ -470,6 +545,15 @@ hr {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    & #city_input {
+        width: 90%;
+    }
+
+    .header #searchBtn,
+    .header #locationBtn {
+        width: 10%;
+        font-size: 14px;
+    }
 }
 
 /* Layout for ultra-small screens (max-width: 520px) */
@@ -499,13 +583,45 @@ hr {
     .weather-data .weather-right .highlights .sunrise-sunset {
         grid-template-columns: 1fr;
     }
+
+    #city_input {
+        width: 80%;
+        font-size: 12px;
+    }
+
+    .header #searchBtn,
+    .header #locationBtn {
+        width: 10%;
+        font-size: 14px;
+        /* padding: 6px 12px; */
+    }
 }
 
 /* Layout for smaller mobile devices (max-width: 450px) */
 
-@media(max-width: 450px) {
+@media(max-width: 400px) {
     .weather-data .weather-right .hourly-forecast {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    #city_input {
+        font-size: 16px;
+        /* Slightly smaller font for very small screens */
+        padding: 12px;
+    }
+
+    .header #searchBtn,
+    .header #locationBtn {
+        width: 10%;
+        font-size: 14px;
+        /* Adjust button text size */
+        padding: 12px;
+
+    }
+
+    .temp-toggle span {
+        font-size: 14px;
+        /* Adjust toggle font size for small screens */
     }
 }
 
@@ -514,5 +630,96 @@ hr {
 @media(max-width: 380px) {
     .weather-data .weather-right .highlights .air-indices {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #city_input {
+        font-size: 16px;
+        width: 80%;
+    }
+
+    .header #searchBtn,
+    .header #locationBtn {
+        /* Make buttons a bit wider */
+        width: 10%;
+        font-size: 14px;
+
+    }
+
+    @media (max-width: 320px) {
+        .header h2 {
+            font-size: 18px;
+        }
+
+        /* Make input box and buttons smaller and stack them if needed */
+        .weather_input {
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .search-container #city_input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-left: 1px;
+            border: none;
+        }
+
+        .header #searchBtn,
+        .header #locationBtn {
+            width: 80%;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* Adjust temperature toggle to fit smaller screens */
+        #tempToggle {
+            display: flex;
+            gap: 4px;
+        }
+
+        .cDegree,
+        .fDegree {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 320px) {
+        .header h2 {
+            font-size: 18px;
+        }
+
+        /* Make input box and buttons smaller and stack them if needed */
+        .weather_input {
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .search-container #city_input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-left: 1px;
+            border: none;
+        }
+
+        .header #searchBtn,
+        .header #locationBtn {
+            width: 80%;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* Adjust temperature toggle to fit smaller screens */
+        #tempToggle {
+            display: flex;
+            gap: 4px;
+        }
+
+        .cDegree,
+        .fDegree {
+            font-size: 14px;
+        }
     }
 }

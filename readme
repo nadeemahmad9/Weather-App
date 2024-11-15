@@ -2,7 +2,9 @@
 
 # 🔗 https://weatherxlive.netlify.app
 
-The LiveWeather App is a web-based weather forecasting application developed using modern web technologies. The app allows users to check the current weather conditions, as well as view forecasts for the next 5 days. The weather data is fetched from the OpenWeather API, and the app is designed to deliver a seamless and intuitive user experience.
+The LiveWeather App is a web-based weather forecasting application developed using modern web technologies. 
+The app allows users to check the current weather conditions, as well as view forecasts for the next 5 days. 
+The weather data is fetched from the OpenWeather API, and the app is designed to deliver a seamless and intuitive user experience.
 
 # Tech Stack 💻:
 
